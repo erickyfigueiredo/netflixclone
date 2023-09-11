@@ -1,4 +1,5 @@
-const API_KEY = 'f8841f5a6970d5a84d3b314615d7dac2';
+import { environment } from "./environments/environments";
+const API_KEY = environment.API_KEY_DEV;
 const API_BASE = 'https://api.themoviedb.org/3';
 
 
