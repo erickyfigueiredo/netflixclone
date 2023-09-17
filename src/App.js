@@ -28,10 +28,25 @@ export default () => {
     loadAll();
   },[]);
 
+  useEffect(() => {
+    const scrollListener = () => {
+      if(window.scrollY > 10){
+        setBlackHeader(true);
+      } else {
+        setBlackHeader(false);
+      }
+    }
+
+    window.addEventListener('scroll', scrollListener);
+    return () => {
+      window.removeEventListener('scroll', scrollListener);
+    }
+  }, []);
+
   return (
     <div className="page">
 
-      <Header></Header>
+      <Header black={blackHeader}></Header>
 
       {featureData && <FeatureMovie item={featureData}></FeatureMovie>}
 
@@ -41,6 +56,11 @@ export default () => {
           <MovieRow key={key} title={item.title} items={item.items}></MovieRow>
         ))}
       </section>
+      <footer>
+        Created By Ericky
+        API - Themoviedb.org
+        © 1997-2023 Netflix, Inc. 
+      </footer>
     </div>
   );
 
