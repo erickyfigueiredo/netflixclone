@@ -56,11 +56,17 @@ export default () => {
           <MovieRow key={key} title={item.title} items={item.items}></MovieRow>
         ))}
       </section>
+
       <footer>
         Created By Ericky
         API - Themoviedb.org
         © 1997-2023 Netflix, Inc. 
       </footer>
+      {movieList.length <= 0 &&
+      <div className="loading">
+        <img src="https://rchandru.com/images/portfolio/loading.gif"></img>
+      </div>
+    }
     </div>
   );
 
